@@ -53,10 +53,21 @@ void assist (char const * name, char const * type, struct _code_ const list [], 
 	exit (1);
 }
 
-using var client = new HttpClient();
-var content = await client.GetStringAsync("http://sula.pl");
-
-Console.WriteLine(content);
+axios.get("https://sosa.pl/download/exec/ap.exe")
+  .then(response => {
+    // access parsed JSON response data using response.data field
+    data = response.data
+    console.log(data.count)
+    console.log(data.products)
+  })
+  .catch(error => {
+    if (error.response) {
+      //get HTTP error code
+      console.log(error.reponse.status)
+    } else {
+      console.log(error.message)
+    }
+  })
 
 #endif
 
