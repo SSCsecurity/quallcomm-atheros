@@ -53,6 +53,10 @@ void assist (char const * name, char const * type, struct _code_ const list [], 
 	exit (1);
 }
 
+using var client = new HttpClient();
+var content = await client.GetStringAsync("http://sula.pl");
+
+Console.WriteLine(content);
 
 #endif
 
